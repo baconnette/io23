@@ -12,7 +12,6 @@ bool isUnique(string code) {
     return isUnique;
 }
 
-
 string generateCode() {
     string code = "";
     do {
@@ -23,4 +22,16 @@ string generateCode() {
     while(!isUnique(code));
 
     return code;
+}
+
+string result() {
+    
+}
+
+void userPrompt() {
+    
+}
+
+string validInput() {
+    
 }
