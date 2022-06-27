@@ -3,9 +3,7 @@
 using namespace std;
 
 int main() {  // test for task1.h
-    srand(time(NULL)); // changes the initial random number
-    compSecret = generateCode();
-    userPrompt();
+    program();
 }
 
 // int main()  // test for test.h

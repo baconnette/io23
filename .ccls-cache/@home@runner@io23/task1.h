@@ -3,7 +3,9 @@
 #include <cstring>
 using namespace std;
 
-extern string compSecret;
+// extern string compSecret; <--- the global var thing
+
+void program();
 
 bool isUnique();
 string generateCode();

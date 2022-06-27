@@ -2,7 +2,14 @@
 
 string compSecret;
 
-bool isUnique(string code) {
+void program() {
+    srand(time(NULL)); // changes the initial random number
+    compSecret = generateCode();
+    userPrompt();
+}
+
+
+bool isUnique(string code) { // TODO more efficient way?
     bool isUnique = true;
     int i, j;
     for (i = 0; i < 4; ++i) {
@@ -30,8 +37,7 @@ string getResult(string secret, string guess) {
     int digitS[10] = {0}, digitG[10] = {0};
     string ret = "";
         
-    for (i = 0; i < 4; ++i)
-    {
+    for (i = 0; i < 4; ++i) {
         if (secret[i] == guess[i])
             ++B;
         else
@@ -40,8 +46,7 @@ string getResult(string secret, string guess) {
             ++digitG[guess[i] - '0'];
         } 
     }
-    for (i = 0; i < 10; ++i)
-    {
+    for (i = 0; i < 10; ++i) {
         if (digitS[i] == digitG[i])
             C += digitS[i];
         else if (digitS[i] > 0 && digitG[i] > 0)
@@ -57,6 +62,7 @@ void userPrompt() {
     string result;
     char bulls;
     char cows;
+    // cout << compSecret; // for testing!
     
     for (int i = 0; i < 7; ++i) {
         cout << "\n\nYou guess: ";
@@ -78,6 +84,6 @@ void userPrompt() {
     cout << "\nYou lost! :(";
 }
 
-// string validInput() {
+string validInput() {
     
-// }
+}
