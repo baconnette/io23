@@ -26,15 +26,29 @@ bool isUnique(string code) { // TODO more efficient way?
     return isUnique;
 }
 
+
 string generateCode() {
+    /*
+    Generates a string of 4 unique digits.
+
+    NOTE:
+    Cannot be generated with only rand() % 10000,
+    in case of numbers like 213400006 -- which can default
+    to <4 digits. So incremental adding of digits is the way to go (?)
+    */
+    
     string code;
     do {
-        code = to_string(rand() % 10000);
+        code = "";
+        for (int i = 0; i < 4; i++) {
+            code += to_string(rand() % 10);
+        }
     }
     while(!isUnique(code));
 
     return code;
 }
+
 
 string getResult(string secret, string guess) {
     int B = 0, C = 0, i = 0;
@@ -60,6 +74,7 @@ string getResult(string secret, string guess) {
         
     return ret;
 }
+
 
 void userPrompt() {
     string userGuess;

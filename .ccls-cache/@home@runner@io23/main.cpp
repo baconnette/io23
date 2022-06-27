@@ -4,6 +4,7 @@ using namespace std;
 
 int main() {  // test for task1.h
     program();
+    return 0;
 }
 
 // int main()  // test for test.h
