@@ -4,8 +4,9 @@ string compSecret;
 
 bool isUnique(string code) {
     bool isUnique = true;
-    for (int i = 0; i < 4; ++i) {
-        for (int j = 0; j < 4; ++j) {
+    int i, j;
+    for (i = 0; i < 4; ++i) {
+        for (j = 0; j < 4; ++j) {
             if (code[i] == code[j] && i != j) {
                 isUnique = false;
             }
@@ -46,7 +47,7 @@ string getResult(string secret, string guess) {
         else if (digitS[i] > 0 && digitG[i] > 0)
             C += (digitS[i] > digitG[i] ? digitG[i] : digitS[i]);
     }
-    ret = to_string(B) + " bulls and " + to_string(C) + " cows";
+    ret = to_string(B) + to_string(C);
         
     return ret;
 }
@@ -54,14 +55,27 @@ string getResult(string secret, string guess) {
 void userPrompt() {
     string userGuess;
     string result;
+    char bulls;
+    char cows;
+    
     for (int i = 0; i < 7; ++i) {
         cout << "\n\nYou guess: ";
         cin >> userGuess;
-        // userGuess = validInput();
+        // userGuess = validInput(); TODO
+        
         result = getResult(compSecret, userGuess);
+        bulls = result[0];
+        cows = result[1];
+        
+        cout << "\nResult: " << bulls << " bulls and " << cows << " cows";
 
-        cout << "\nResult: " << result;
+        if (bulls == '4') {
+            cout << "\nYou win! :)";
+            return;
+        } 
     }
+
+    cout << "\nYou lost! :(";
 }
 
 // string validInput() {
