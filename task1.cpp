@@ -66,8 +66,7 @@ void userPrompt() {
     
     for (int i = 0; i < 7; ++i) {
         cout << "\n\nYou guess: ";
-        cin >> userGuess;
-        // userGuess = validInput(); TODO
+        userGuess = validInput(); 
         
         result = getResult(compSecret, userGuess);
         bulls = result[0];
@@ -84,6 +83,36 @@ void userPrompt() {
     cout << "\nYou lost! :(";
 }
 
+
 string validInput() {
-    
+    string ret;
+    int int_check;
+
+    while(true) {
+
+        // Checks [1] :: String contains only numbers?
+        try {
+            cin >> ret;
+            int_check = stoi(ret);
+        }
+        catch (...) {
+            cout << " |_ Invalid; enter numbers only.\n |_ Enter again: ";
+            continue;
+        }
+
+        // Checks [2] :: String are digits only?
+        if (int_check <= 0 || ret.find(".") != string::npos) {
+            cout << " |_ Invalid; positive integers only\n |_ Enter again: ";
+            continue;
+        }
+
+        // Checks [3] :: String contains 4 digits?
+        if (ret.length() != 4 || !isUnique(ret)) {
+            cout << " |_ Invalid; not unique 4 digits.\n |_ Enter again: ";
+            continue;
+        }
+
+        return ret;
+    }
 }
+
