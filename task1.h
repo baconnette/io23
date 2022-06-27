@@ -3,6 +3,8 @@
 #include <cstring>
 using namespace std;
 
+extern string compSecret;
+
 bool isUnique();
 string generateCode();
 
@@ -10,7 +12,7 @@ string generateCode();
 // im thinking of just a stringified integer where:
 // string[0] = # of bulls
 // string[1] = # of cows
-string result(); 
+string getResult(string secret, string guess); 
 void userPrompt();
 
 // for limits i think:

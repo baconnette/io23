@@ -2,13 +2,13 @@
 #include "test.h"
 using namespace std;
 
-int main() {
-  srand(time(NULL)); // changes the initial random number
-  std::cout << "Hello World!\n";
-  std::cout << generateCode();
+int main() {  // test for task1.h
+    srand(time(NULL)); // changes the initial random number
+    compSecret = generateCode();
+    userPrompt();
 }
 
-// int main()
+// int main()  // test for test.h
 // {
 //   int num = Gen();
 //   string secret = to_string(num);
