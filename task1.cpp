@@ -13,11 +13,9 @@ bool isUnique(string code) {
 }
 
 string generateCode() {
-    string code = "";
+    string code;
     do {
-        for (int i = 0; i < 4; i++) {
-            code += to_string(rand() % 10);
-        }
+        code = to_string(rand() % 10000);
     }
     while(!isUnique(code));
 

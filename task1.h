@@ -14,7 +14,7 @@ string result();
 void userPrompt();
 
 // for limits i think:
-// 1. letters (if using stoi(), should also filter floats!)
+// 1. letters
 // 2. >4 and <4 digits
 // 3. use isUnique and forbid repeating same number (maybe?)
 string validInput();
