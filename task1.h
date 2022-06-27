@@ -3,8 +3,6 @@
 #include <cstring>
 using namespace std;
 
-// extern string compSecret; <--- the global var thing
-
 void program();
 
 bool isUnique();
@@ -22,3 +20,4 @@ void userPrompt();
 // 2. >4 and <4 digits
 // 3. use isUnique and forbid repeating same number (maybe?)
 string validInput();
+void tryAgain();

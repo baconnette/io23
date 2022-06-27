@@ -1,11 +1,15 @@
 #include "task1.h"
 
 string compSecret;
+char programCont = 'y';
 
 void program() {
-    srand(time(NULL)); // changes the initial random number
-    compSecret = generateCode();
-    userPrompt();
+    while (programCont == 'y') {
+        srand(time(NULL)); // changes the initial random number
+        compSecret = generateCode();
+        userPrompt();
+        tryAgain();
+    }
 }
 
 
@@ -80,7 +84,7 @@ void userPrompt() {
         } 
     }
 
-    cout << "\nYou lost! :(";
+    cout << "\nYou lost! :(\nThe secret is " << compSecret;
 }
 
 
@@ -116,3 +120,17 @@ string validInput() {
     }
 }
 
+
+void tryAgain() {
+    cout << "\n\nTry again? [y/n]: ";
+    while (true) { 
+        cin >> programCont;
+        if (programCont != 'y' && programCont != 'n') {
+            cout<< " |_ Invalid input.\n |_ Please only enter [y/n]: ";
+            continue;
+        }
+        break;
+    }
+
+    cout<< "\n\n\n\n";
+}
